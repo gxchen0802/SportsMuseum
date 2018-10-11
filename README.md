@@ -7,5 +7,6 @@
 fis release -d build -poD
 
 // 开发环境
+fis release -d test -pDw
 
 ```
