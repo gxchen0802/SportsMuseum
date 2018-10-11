@@ -1,0 +1,153 @@
+// 旋转
+.rotate(@angle:0deg) {
+    transform: rotate(@angle);
+    -ms-transform: rotate(@angle);  /* IE 9 */
+    -moz-transform: rotate(@angle);     /* Firefox */
+    -webkit-transform: rotate(@angle); /* Safari以及Chrome */
+    -o-transform: rotate(@angle);   /* Opera */
+}
+// 圆角
+.border-radius(@radius) {
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    border-radius: @radius;
+}
+.border-top-radius(@radius) {
+    -moz-border-top-right-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-top-right-radius: @radius;
+    border-top-left-radius: @radius;
+}
+.border-right-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-top-right-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-top-right-radius: @radius;
+}
+.border-bottom-radius(@radius) {
+    -moz-border-bottom-right-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    border-bottom-right-radius: @radius;
+    border-bottom-left-radius: @radius;
+}
+.border-left-radius(@radius) {
+    -moz-border-bottom-left-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    border-bottom-left-radius: @radius;
+    border-top-left-radius: @radius;
+}
+// 单行文本省略
+.ellipsis() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    //对IE7+ | Safari的兼容
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    //对Opera的兼容
+    -moz-binding: url("ellipsis.xml#ellipsis");
+    //对FireFox的兼容
+}
+// 清除浮动
+.clearfix() {
+    *zoom: 1;
+
+    &:after {
+        content: " ";
+        display: block;
+        clear: both;
+        height: 0;
+        font-size: 0;
+        visibility: hidden;
+    }
+}
+// 三角箭头(色块)的样式
+.triangle(@size) {
+    height: 0;
+    width: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: @size / 2;
+}
+.triangle-up(@color, @size) {
+    .triangle(@size);
+    border-bottom-color: @color;
+}
+.triangle-down(@color, @size) {
+    .triangle(@size);
+    border-top-color: @color;
+}
+.triangle-left(@color, @size) {
+    .triangle(@size);
+    border-right-color: @color;
+}
+.triangle-right(@color, @size) {
+    .triangle(@size);
+    border-left-color: @color;
+}
+// 三角箭头（线框）的样式
+.arr(@size) {
+    display: inline-block;
+    height: @size;
+    transition: .5s;
+    width: @size;
+}
+.arr-up(@size, @border, @color) {
+    .arr(@size);
+    border-top: @border solid @color;
+    border-left: @border solid @color;
+    margin: 0 @size/2 -@size/2 @size/2;
+    .rotate(45deg);
+}
+.arr-down(@size, @border, @color) {
+    .arr(@size);
+    border-bottom: @border solid @color;
+    border-left: @border solid @color;
+    margin: -@size/2 @size/2 0 @size/2;
+    .rotate(-45deg);
+}
+.arr-prev(@size, @border, @color) {
+    .arr(@size);
+    border-top: @border solid @color;
+    border-left: @border solid @color;
+    margin: -@size/2;
+    .rotate(-45deg);
+}
+.arr-next(@size, @border, @color) {
+    .arr(@size);
+    border-bottom: @border solid @color;
+    border-right: @border solid @color;
+    margin: -@size/2;
+    .rotate(-45deg);
+}
+// inline-block
+.inline-block() {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+// center-block
+.center-block() {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+// 线性渐变
+.linear-gradient(@color1, @color2) {
+    FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0, startColorStr=@color1, endColorStr=@color2); /*IE 6 7 8*/
+    background: -ms-linear-gradient(top, @color1, @color2);  /* IE 10 */
+    background: -moz-linear-gradient(top, @color1, @color2);   /*火狐*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@color1), to(@color2));  /*谷歌*/
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(@color1), to(@color2));   /* Safari 4-5, Chrome 1-9*/
+    background: -webkit-linear-gradient(top, @color1, @color2);   /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, @color1, @color2);  /*Opera 11.10+*/
+}

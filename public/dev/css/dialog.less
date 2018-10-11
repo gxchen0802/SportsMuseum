@@ -1,0 +1,114 @@
+@charset "UTF-8";
+@color-black: #444;
+@color-grey-1:#666;
+@color-grey-2:#ddd;
+@color-grey-3:#f7f7f7;
+@color-bule: #0060a5;
+@color-bule-2:#00508b;
+@color-orange: #ff5517;
+//微软雅黑
+@font-yahei: Microsoft YaHei, '\5fae\8f6f\96c5\9ed1';
+
+.inline-block() {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+}
+//边框圆角
+.border-radius(@radius) {
+	//Gecko
+	-moz-border-radius: @radius;
+	//Webkit
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+.list-style() {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+//默认下拉菜单样式
+.auto-dialog {
+	.dialog-container {
+		background-color: #fff;
+		left: 50%;
+		min-height: 200px;
+		margin-left: -150px;
+		overflow: hidden;
+		position: fixed;
+		_position: absolute;
+		top: 50%;
+		z-index: 10001;
+
+		a, a:hover, a:link, a:visited, a:active {
+			text-decoration: none;
+		}
+	}
+	h4.dialog-head {
+		.list-style();
+		height: 20px;
+		font: 16px/20px @font-yahei;
+		padding: 11px 10px;
+		background-color: @color-grey-3;
+		border: 0;
+		text-align: left;
+		position: relative;
+		z-index: 1;
+
+		.dialog-title, .dialog-close {
+			.inline-block;
+		}
+		.dialog-title {
+			height: 20px;
+			width: auto;
+			color: @color-black;
+		}
+		.dialog-close {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 11px;
+			right: 10px;
+			text-align: center;
+			vertical-align: middle;
+			font: 800 24px/20px @font-yahei;
+			color: #666;
+			cursor: pointer;
+
+			&:hover {
+				color: #666;
+			}
+		}
+	}
+	.dialog-body {
+		padding: 30px;
+		min-height: 150px;
+		overflow: hidden;
+	}
+	.dialog-bg {
+		left: 0;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		background-color: #000;
+		background-color: rgba(0, 0, 0, 0.5);
+		opacity: 0.5;
+		filter: progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+		filter: alpha(opacity=50);
+		position: fixed;
+		_position: absolute;
+		z-index: 10000;
+	}
+}
+//最小对话框样式
+.min-dialog {
+	.dialog-container {
+		min-height: 160px;
+		min-width: 250px;
+		margin-left: -125px;
+
+		.dialog-body {
+			min-height: 60px;
+		}
+	}
+}
